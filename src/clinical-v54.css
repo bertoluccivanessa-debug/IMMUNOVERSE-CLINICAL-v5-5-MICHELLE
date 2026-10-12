@@ -75,3 +75,45 @@
 .causal-dashboard-card h2{font-size:22px;margin:5px 0 8px;color:#173c50}.causal-dashboard-card p,.causal-quicklink p{font-size:13px;color:#53717e;margin:4px 0}.causal-quicklink b{color:#123e50}
 @media(max-width:760px){.mobile-dock{grid-template-columns:repeat(6,minmax(0,1fr))!important}.mobile-dock button small{font-size:9px!important}.causal-dashboard-card,.causal-quicklink{flex-direction:column;align-items:stretch}.causal-dashboard-card .btn,.causal-quicklink .btn{width:100%}}
 @media(max-width:390px){.mobile-dock button small{font-size:8px!important}}
+
+/* Atlas imunológico expandido */
+.atlas-expanded{display:grid;gap:22px}
+.atlas-intro{background:linear-gradient(180deg,#f6fbff 0%,#ffffff 100%);border:1px solid #d8e7ee;border-radius:20px;padding:24px;color:#1e4450}
+.atlas-intro h1{margin:6px 0 8px;font-size:clamp(30px,4vw,52px);line-height:1.03;color:#18384b}
+.atlas-intro h1 span{color:#0c8f87}
+.atlas-intro p{max-width:1000px;margin:0 0 14px;font-size:17px;line-height:1.6}
+.atlas-summary-pills,.atlas-anchor-nav{display:flex;flex-wrap:wrap;gap:10px}
+.atlas-summary-pills span,.atlas-anchor-nav a{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:999px;background:#ecf6f8;border:1px solid #cfe5e7;color:#23505c;font-weight:700;text-decoration:none}
+.atlas-layout{display:grid;grid-template-columns:minmax(230px,280px) minmax(0,1fr);gap:18px;align-items:start}
+.atlas-select{display:grid;gap:8px;position:sticky;top:88px;max-height:calc(100vh - 120px);overflow:auto;padding-right:4px}
+.atlas-choice{text-align:left;border:1px solid #d7e5ea;background:#fff;border-radius:14px;padding:12px 14px;color:#203d49;display:grid;gap:3px;cursor:pointer;transition:.16s ease box-shadow,.16s ease transform,.16s ease border-color}
+.atlas-choice small{color:#5f7980;font-size:12px}
+.atlas-choice:hover{transform:translateY(-1px);box-shadow:0 10px 22px rgba(26,69,84,.08)}
+.atlas-choice.active{border-color:#29b3a3;background:#eaf8f5;box-shadow:0 12px 26px rgba(23,130,121,.12)}
+.atlas-work{background:#fff;border:1px solid #d9e6ec;border-radius:20px;padding:22px;display:grid;grid-template-columns:minmax(180px,240px) minmax(0,1fr);gap:22px;align-items:start}
+.atlas-image{display:grid;place-items:center;background:#f7fbfd;border:1px solid #e0edf2;border-radius:18px;min-height:230px;padding:18px}
+.atlas-description h2{margin:4px 0 8px;font-size:38px;line-height:1.05;color:#18384b}
+.atlas-description>p{font-size:17px;line-height:1.6;color:#33545f}
+.atlas-meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:16px 0}
+.atlas-meta-grid>div,.atlas-subcards article,.atlas-info-card{background:#fbfdfe;border:1px solid #dde9ee;border-radius:16px;padding:14px 16px;color:#244751}
+.atlas-meta-grid strong,.atlas-subcards h3,.atlas-info-card h3{display:block;margin-bottom:6px;color:#143746}
+.atlas-meta-grid p,.atlas-subcards p,.atlas-info-card p,.atlas-info-card li{line-height:1.56}
+.atlas-toggle{display:inline-flex;gap:8px;background:#f1f6fa;border:1px solid #dbe7ed;border-radius:999px;padding:5px;margin:4px 0 12px}
+.atlas-toggle button{border:0;background:transparent;padding:9px 14px;border-radius:999px;font-weight:700;color:#35505d;cursor:pointer}
+.atlas-toggle button.active{background:#08384f;color:#fff}
+.atlas-outcome{border:1px solid #cde8e1;background:#ebfaf6;border-radius:16px;padding:14px 16px;color:#174a46;margin-bottom:14px}
+.atlas-outcome.altered{background:#fff5f2;border-color:#f0d1c7;color:#804534}
+.atlas-outcome strong{display:block;margin-bottom:5px}
+.atlas-subcards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:14px 0}
+.atlas-subcards ul,.atlas-info-card ul{padding-left:18px;margin:8px 0 0}
+.atlas-actions{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 8px}
+.atlas-knowledge-section{display:grid;gap:16px}
+.atlas-knowledge-block{display:grid;gap:10px}
+.atlas-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.atlas-card-grid.term{grid-template-columns:repeat(3,minmax(0,1fr))}
+.atlas-info-card small{display:block;margin-top:10px;color:#4b6872;line-height:1.5}
+.atlas-info-card ul li+li{margin-top:5px}
+.atlas-clinical .section-head{margin-bottom:0}
+@media(max-width:1120px){.atlas-work{grid-template-columns:1fr}.atlas-image{min-height:200px}.atlas-subcards{grid-template-columns:1fr}.atlas-card-grid.term{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.atlas-layout{grid-template-columns:1fr}.atlas-select{position:static;max-height:none;grid-template-columns:repeat(2,minmax(0,1fr))}.atlas-meta-grid,.atlas-card-grid{grid-template-columns:1fr}.atlas-card-grid.term{grid-template-columns:1fr}}
+@media(max-width:620px){.atlas-intro,.atlas-work{padding:18px}.atlas-select{grid-template-columns:1fr}.atlas-description h2{font-size:31px}.atlas-summary-pills span,.atlas-anchor-nav a{font-size:13px;padding:9px 11px}}
