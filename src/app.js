@@ -1,3 +1,4 @@
+import { inject } from '@vercel/analytics';
 import {causalView} from './causal-view.js';
 import {mountCausalLab,causalSummary,CAUSAL_STORAGE_KEY} from './causal-lab.js';
 import {clinicalPage,bindClinicalRender,handleClinicalClick,handleClinicalInput,openAdvancedClinicalLab,openCurricularPractice} from './clinical.js';
@@ -8,6 +9,11 @@ import {cellSVG} from './morphology.js';
 import {getFieldwork,fieldOptions} from './fieldwork.js';
 import {atlasContext} from './atlas-context.js';
 import { WORLDS, CASES, GLOSSARY } from './content.js';
+
+// Initialize Vercel Web Analytics (only in browser environment)
+if (typeof document !== 'undefined' && typeof document.head !== 'undefined') {
+  inject();
+}
 import {SCENES,SCENE_BY_ID,SCENE_BY_WORLD,CAST_IMAGES,STRATEGIES} from './adventure.js';
 import { LABS,newLabState,advanceLab,toggleLabBlock,renderLabExperience } from './simulations.js';
 import { STORAGE_KEY,PHASES,PHASE_NAMES,blankProgress,freshSession,loadProgress,calculateReward,summarize,escapeHTML as h,reportCSV } from './engine.js';
@@ -69,7 +75,7 @@ const CHARACTERS=[
  {name:'Tiko',title:'CAR-T',world:'cart',icon:'🚀',role:'Herói translacional que reconhece alvos definidos.',power:'Receptor quimérico anti-alvo'}
 ];
 const SCENE_ICONS={
- sentinelas:['🛡️','🦠','⚡','🔬'],complemento:['☄️','🫧','💥','🦠'],adaptativa:['🧬','📘','🧠','🛡️'],anticorpos:['🧪','Y','✨','🧫'],memoria:['🌱','⭐','🗂️','🛡️'],cart:['🚀','🎯','⚡','🧬'],hepatites:['🧡','🦠','🧫','💉'],hiv:['🧬','🛡️','🧪','⏳'],mucosas:['🫧','🍃','🧫','🧬'],vacinas:['💉','⭐','🛡️','🧠']
+ sentinelas:['🛡️','���','⚡','🔬'],complemento:['☄️','🫧','💥','🦠'],adaptativa:['🧬','📘','🧠','🛡️'],anticorpos:['🧪','Y','✨','🧫'],memoria:['🌱','⭐','🗂️','🛡️'],cart:['🚀','🎯','⚡','🧬'],hepatites:['🧡','🦠','🧫','💉'],hiv:['🧬','🛡️','🧪','⏳'],mucosas:['🫧','🍃','🧫','🧬'],vacinas:['💉','⭐','🛡️','🧠']
 };
 function scenePanel(w,compact=false,label='CENÁRIO'){const icons=SCENE_ICONS[w.id]||['🧬','🛡️','🦠','✨'];const sceneId=SCENE_BY_WORLD[w.id]||'laboratorio';return `<div class="scene-panel ${compact?'compact':''}" style="--accent:${w.color}"><div class="scene-image" style="background-image:url('./assets/scenes/${sceneId}.webp')"></div><div class="scene-glow"></div><div class="scene-grid"></div>${icons.map((icon,i)=>`<span class="scene-particle p${i+1}">${icon}</span>`).join('')}<div class="scene-copy"><span>${label}</span><strong>${enc(w.title)}</strong><small>${enc(w.tagline||w.description)}</small></div><button class="scene-explore" data-scene-open="${sceneId}" aria-label="Explorar cenário ${enc(w.title)}">✥ Explorar local</button></div>`;}
 function characterAvatar(ch){const w=worldById[ch.world]||WORLDS[0],art=CAST_IMAGES[ch.name];return `<div class="char-avatar" style="--accent:${w.color}">${art?`<img loading="lazy" src="./assets/cast/${art}.webp" alt="Ilustração cartoon: ${enc(ch.title)}">`:`<span>${ch.icon}</span>`}<b>${enc(ch.name)}</b></div>`;}
