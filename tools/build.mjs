@@ -9,6 +9,9 @@ const root = resolve(import.meta.dirname, '..');
 await rm(resolve(root, 'dist'), {recursive:true, force:true});
 await mkdir(resolve(root, 'dist'), {recursive:true});
 await cp(resolve(root, 'src'), resolve(root, 'dist'), {recursive:true});
+// Copy Vercel Analytics package for browser ES module imports
+await mkdir(resolve(root, 'dist/@vercel'), {recursive:true});
+await cp(resolve(root, 'node_modules/@vercel/analytics'), resolve(root, 'dist/@vercel/analytics'), {recursive:true});
 const html = await readFile(resolve(root, 'dist/index.html'), 'utf8');
 if (!html.includes('src="./app.js"')) throw new Error('Entry point ausente');
 execFileSync(process.execPath, [resolve(root, 'tools/verify-static.mjs'), 'dist'], { stdio: 'inherit' });
